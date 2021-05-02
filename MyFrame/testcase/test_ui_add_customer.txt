@@ -1,0 +1,5 @@
+新增会员,正确参数
+test_ui_login.csv
+click element,link=会员管理
+input text,id=customerphone,123456
+pagesource,111111

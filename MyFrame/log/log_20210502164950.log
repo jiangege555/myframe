@@ -1,0 +1,29 @@
+[2021/05/02/16:49:50] api_action.py INFO: line[20] 请求的url地址为 http://localhost:8081/woniusales/user/login,请求头为 {'User-Agent': 'python-requests/2.25.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '46', 'Content-Type': 'application/x-www-form-urlencoded'},请求正文为 username=admin&password=123456&verifycode=0000
+[2021/05/02/16:49:50] api_action.py INFO: line[20] 请求的url地址为 http://localhost:8081/woniusales/customer/search,请求头为 {'User-Agent': 'python-requests/2.25.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Cookie': 'JSESSIONID=582B3EDD739F29CC58715A4B31E654B5.tomcat1; password=123456; username=admin', 'Content-Length': '21', 'Content-Type': 'application/x-www-form-urlencoded'},请求正文为 customerphone=&page=1
+[2021/05/02/16:49:50] testcast_manager.py INFO: line[20] 模块 会员管理 的用例 查询会员 测试通过
+[2021/05/02/16:49:50] api_action.py INFO: line[20] 请求的url地址为 http://localhost:8081/woniusales/user/login,请求头为 {'User-Agent': 'python-requests/2.25.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '46', 'Content-Type': 'application/x-www-form-urlencoded'},请求正文为 username=admin&password=123456&verifycode=0000
+[2021/05/02/16:49:50] testcast_manager.py INFO: line[20] 模块 登录模块 的用例 使用正确参数登录成功 测试通过
+[2021/05/02/16:50:01] ui_action.py INFO: line[20] 打开网址 http://localhost:8081/woniusales/
+[2021/05/02/16:50:01] ui_action.py INFO: line[20] 通过 id=username 定位元素成功
+[2021/05/02/16:50:01] ui_action.py INFO: line[20] 在 id=username 处输入了 admin
+[2021/05/02/16:50:02] ui_action.py INFO: line[20] 通过 id=password 定位元素成功
+[2021/05/02/16:50:02] ui_action.py INFO: line[20] 在 id=password 处输入了 123456
+[2021/05/02/16:50:03] ui_action.py INFO: line[20] 通过 id=verifycode 定位元素成功
+[2021/05/02/16:50:03] ui_action.py INFO: line[20] 在 id=verifycode 处输入了 0000
+[2021/05/02/16:50:04] ui_action.py INFO: line[20] 通过 xpath=(//button[@type="button"])[5] 定位元素成功
+[2021/05/02/16:50:04] ui_action.py INFO: line[20] 在 xpath=(//button[@type="button"])[5] 处做了点击操作
+[2021/05/02/16:50:05] ui_action.py INFO: line[20] 通过 link=会员管理 定位元素成功
+[2021/05/02/16:50:05] ui_action.py INFO: line[20] 在 link=会员管理 处做了点击操作
+[2021/05/02/16:50:05] ui_action.py INFO: line[20] 通过 id=customerphone 定位元素成功
+[2021/05/02/16:50:05] ui_action.py INFO: line[20] 在 id=customerphone 处输入了 123456
+[2021/05/02/16:50:05] testcast_manager.py ERROR: line[40] 模块 新增会员 的用例 正确参数 测试失败,错误为 期望结果111111不在页面源码中
+[2021/05/02/16:50:20] ui_action.py INFO: line[20] 打开网址 http://localhost:8081/woniusales/
+[2021/05/02/16:50:20] ui_action.py INFO: line[20] 通过 id=username 定位元素成功
+[2021/05/02/16:50:20] ui_action.py INFO: line[20] 在 id=username 处输入了 admin
+[2021/05/02/16:50:21] ui_action.py INFO: line[20] 通过 id=password 定位元素成功
+[2021/05/02/16:50:21] ui_action.py INFO: line[20] 在 id=password 处输入了 123456
+[2021/05/02/16:50:22] ui_action.py INFO: line[20] 通过 id=verifycode 定位元素成功
+[2021/05/02/16:50:22] ui_action.py INFO: line[20] 在 id=verifycode 处输入了 0000
+[2021/05/02/16:50:23] ui_action.py INFO: line[20] 通过 xpath=(//button[@type="button"])[5] 定位元素成功
+[2021/05/02/16:50:23] ui_action.py INFO: line[20] 在 xpath=(//button[@type="button"])[5] 处做了点击操作
+[2021/05/02/16:50:24] testcast_manager.py INFO: line[20] 模块 登录 的用例 正确用户名 测试通过

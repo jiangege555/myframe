@@ -1,0 +1,82 @@
+框架描述：
+    本框架是基于KDT开发的一套兼容UI和接口的自动化测试框架，在manager包的testcase_manager模块里调用，
+根据传入读取用例的规则，读取对应的用例并执行，可以根据html报告的模板生成测试报告，并可以将报告、截图打包一起
+发送，相应的步骤会有日志输出
+
+目录结构：
+1.action
+    这是动作模块，里面分别对api和ui封装了相应操作的关键字，可以自己在里面修改、新增关键字
+2.common公共库
+    common模块里面封装了driver、session、数据库的操作，
+    config模块为配置文件，可以配置写入测试结果的数据库信息，默认主机名，邮箱信息等
+    get_logger模块为日志类，封装了日志的相应方法
+    report模块为测试报告的操作类，有测试结果写入数据库，生成html报告，压缩报告，发送报告邮件等
+3.log
+    存放日志输出的目录
+4.manager
+    测试执行模块，里面封装了执行测试的方法
+5.reader
+    读取用例的模块，里面封装了读取txt，scv用例文件的方法，并将每一行关键字放到一个列表中返回，
+支持数据里面嵌套其他的txt，csv，一并读出并执行关键字
+6.report
+    里面有screenshot目录，存放截图，html格式报告文件
+7.testcase
+    用例模块，可以使用txt，csv格式编写关键字用例
+
+操作说明：
+1.支持的关键字
+(1).UI:
+    open browser:打开浏览器
+    input text:在input框输入内容
+    click element:点击定位到的元素
+    wait until:等待元素加载完成
+    sleep:强制等待
+    element should contain:断言元素包含预期值
+    element should be:断言元素文本值等于一个预期值
+    pagesource:断言页面源码包含
+    ......可在ui_action模块自定义
+(2).API:
+    get:发送get请求
+    post:发送post请求
+    put:发送put请求
+    delete:发送delete请求
+    status should be:断言状态码
+    should be equal:断言实际结果等于一个预期值
+    should be contain:断言实际结果包含一个预期值
+    ......可在api_action模块自定义
+
+2.脚本,api必须以test_api开头,ui必须以test_ui开头,暂支持csv和txt格式
+api格式:
+    '''
+    登录模块,使用正确参数登录成功
+    post,user/login,username=admin&password=123456&code=0000
+    status should be,code,200
+    should be equal,text,login-pass
+    '''
+    涉及json断言需要加上jsonpath，如：should be equal,json$..user,admin
+ui格式:
+    '''
+    登录模块,使用正确参数登录成功
+    open browser,/login
+    wait until,id=username
+    input text,id=username,admin
+    input text,id=password,123456
+    input text,id=code,0000
+    click element,xpath=(//button[@type="button"])[5]
+    sleep,1
+    pagesource,注销
+    '''
+第一行为模块,用例名,还可以嵌套其他脚本,如：
+    '''
+    新增会员,正确参数
+    test_ui_login.csv
+    input text,id=customerphone,123456
+    '''
+
+3.调用（前提：相应的配置需要在common下面的config模块配置好）
+    tm=TestcaseManager('v1.1') --- 传入测试版本
+    case=tm.discovery('*')     --- 根据规则读取用例，放入列表，如：test_ui* 表示读取ui脚本
+    for i in case:             --- 遍历用例列表
+        tm.run(i)              --- 调用run方法读取每一行关键字并执行
+    tm.build_report()          --- 生成html测试报告
+    tm.send_report()           --- 发送邮件

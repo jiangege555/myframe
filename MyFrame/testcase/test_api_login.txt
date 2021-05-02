@@ -1,0 +1,4 @@
+登录模块,使用正确参数登录成功
+post,/woniusales/user/login,username=admin&password=123456&verifycode=0000
+status should be,code,200
+should be equal,text,login-pass

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<table border="1" cellspacing="0" cellpadding="10" align="center" width="80%">
+			<tr style="text-align: center;background-color: aqua;font-family:微软雅黑;font-size: 30px;">
+				<td colspan="5">自动化测试报告</td>
+			</tr>
+			<tr>
+				<td>被测版本：$version</td>
+				<td>通过数：$success</td>
+				<td>失败数：$fails</td>
+				<td>错误数：$errors</td>
+				<td>最后时间：$times</td>
+			</tr>
+		</table>
+		<br/>
+		<table border="1" align="center" cellspacing="0" width="80%">
+
+			<tr align="center" bgcolor="coral">
+				<td width="3%">记录编号</td>
+				<td width="10%">所属模块</td>
+				<td width="5%">测试类型</td>
+				<td width="15%">用例描述</td>
+				<td width="15%">测试时间</td>
+				<td width="6%">测试结果</td>
+				<td width="16%">异常情况</td>
+				<td width="10%">截图</td>
+			</tr>
+					$results
+		</table>
+	</body>
+</html>

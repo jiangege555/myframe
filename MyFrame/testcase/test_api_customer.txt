@@ -1,0 +1,4 @@
+会员管理,查询会员
+test_api_login.txt
+post,/woniusales/customer/search,customerphone=&page=1
+should be contain,text,customerphone

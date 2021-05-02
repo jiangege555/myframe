@@ -1,0 +1,12 @@
+登录,正确用户名
+open browser,/woniusales/
+wait until,id=username
+input text,id=username,admin
+sleep,1
+input text,id=password,123456
+sleep,1
+input text,id=verifycode,0000
+sleep,1
+click element,xpath=(//button[@type="button"])[5]
+sleep,1
+pagesource,注销
