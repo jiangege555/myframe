@@ -66,6 +66,8 @@ class TestcaseManager:
                             else:
                                 scr=[script[0],re.dict_data(script[1])]
                                 response = getattr(action, method_name)(*scr)
+                else:
+                    action.logger.error(f'方法 {method_name} 不存在')   
             self.report.write_report(re.test_module,test_type,re.test_title,'成功','无','无')
             action.logger.info(f'模块 {re.test_module} 的用例 {re.test_title} 测试通过')
         except AssertionError as e:
