@@ -33,7 +33,7 @@ class Report:
         sql=f'select * from report where version="{self.version}";'
         re=db.query_all(sql)
         if len(re)==0:
-            print('没找到指定版本的测试结果')
+            self.logger.error('没找到指定版本的测试结果')
             return None
         # 用例通过数
         sql = f'select count(*) from report where version="{self.version}" and result="成功";'
