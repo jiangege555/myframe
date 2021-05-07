@@ -30,7 +30,7 @@ class UiAction:
            self.logger.info(f'通过 {locator} 定位元素成功')
            return ele
         except Exception as e:
-            self.logger.info(f'通过 {locator} 定位元素失败,异常为 {str(e)}')
+            self.logger.error(f'通过 {locator} 定位元素失败,异常为 {str(e)}')
 
     def get_locator(self,locator):
         '''
@@ -63,19 +63,19 @@ class UiAction:
             ele.send_keys(text)
             self.logger.info(f'在 {locator} 处输入了 {text}')
         except Exception as e:
-            self.logger.info(f'在 {locator} 输入 {text} 出现异常,异常为 {str(e)}')
+            self.logger.error(f'在 {locator} 输入 {text} 出现异常,异常为 {str(e)}')
 
     def click_element(self,locator):
         try:
             self.get_element(locator).click()
             self.logger.info(f'在 {locator} 处做了点击操作')
         except Exception as e:
-            self.logger.info(f'点击元素 {locator} 出现异常,异常为 {str(e)}')
+            self.logger.error(f'点击元素 {locator} 出现异常,异常为 {str(e)}')
 
     # 等待元素加载完成
     def wait_until(self,locator,timeout=5):
         try:
-            return WebDriverWait(self.dr,timeout).until(lambda dr:self.dr.find_element(*self.get_locator(locator)))
+            return WebDriverWait(self.dr,timeout).until(lambda dr:dr.find_element(*self.get_locator(locator)))
         except TimeoutError:
             return None
 
